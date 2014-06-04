@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Manifest-first-hook-test
+Bundle-SymbolicName: manifest-first-hook-test
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Import-Package: com.liferay.portal.kernel.struts,
+ javax.portlet,
+ javax.servlet,
+ javax.servlet.http
+Service-Component: OSGI-INF/manifest.first.hook.test.StrutsAction_One.xml,OSGI-INF/manifest.first.hook.test.StrutsPortletAction_One.xml
