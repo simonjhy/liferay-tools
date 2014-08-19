@@ -7,3 +7,4 @@ rebel.xml
 target/
 /.settings/
 /.project
+.gradle
