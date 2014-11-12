@@ -1482,7 +1482,7 @@ public abstract class BaseSourceProcessor implements SourceProcessor {
 		return line;
 	}
 
-	protected static final String BASEDIR = "./";
+	protected static final String BASEDIR = "./bin_test/";
 
 	protected static Pattern attributeNamePattern = Pattern.compile(
 		"[a-z]+[-_a-zA-Z0-9]*");

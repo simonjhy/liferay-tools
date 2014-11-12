@@ -8,7 +8,10 @@
 
 -testpath: \
 	junit,\
-	hamcrest-core
+	hamcrest-core,\
+	commons-io:commons-io;strategy=exact;version=2.1,\
+	dom4j:dom4j;strategy=exact;version=1.6.1
+
 
 Bundle-Version: 1.0.0.${tstamp}
 
