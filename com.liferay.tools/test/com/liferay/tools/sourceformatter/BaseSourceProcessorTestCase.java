@@ -126,6 +126,6 @@ public class BaseSourceProcessorTestCase {
 	protected SourceFormatter sourceFormatter;
 
 	private static final String _DIR_NAME =
-		"com/liferay/tools/sourceformatter/dependencies";
+		"./bin_test/com/liferay/tools/sourceformatter/dependencies";
 
 }
