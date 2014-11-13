@@ -1,16 +1,15 @@
 -buildpath: \
-	biz.aQute.bnd.annotation,\
 	com.liferay.portal:portal-service;strategy=exact;version=7.0.0-SNAPSHOT,\
 	com.liferay.portal:portal-impl;strategy=exact;version=7.0.0-SNAPSHOT,\
 	com.liferay.portal:util-java;strategy=exact;version=7.0.0-SNAPSHOT,\
 	org.apache.ant:ant;strategy=exact;version=1.8.2,\
-	com.thoughtworks.qdox:qdox;strategy=exact;version=1.12.1
+	com.thoughtworks.qdox:qdox;strategy=exact;version=1.12.1,\
+	dom4j:dom4j;strategy=exact;version=1.6.1
 
 -testpath: \
 	junit,\
 	hamcrest-core,\
-	commons-io:commons-io;strategy=exact;version=2.1,\
-	dom4j:dom4j;strategy=exact;version=1.6.1
+	commons-io:commons-io;strategy=exact;version=2.1
 
 
 Bundle-Version: 1.0.0.${tstamp}
@@ -25,9 +24,16 @@ Private-Package: \
 	com.liferay.tools.sourceformatter,\
 	com.liferay.portal.kernel.exception,\
 	com.liferay.portal.kernel.io.unsync,\
+	com.liferay.portal.kernel.log,\
+	com.liferay.portal.kernel.memory,\
+	com.liferay.portal.kernel.xml,\
+	com.liferay.portal.kernel.process,\
 	com.liferay.portal.kernel.util,\
 	com.liferay.portal.kernel.xml,\
+	com.liferay.portal.util,\
+	com.liferay.portal.xml,\
 	com.liferay.util,\
+	com.liferay.util.xml,\
 	com.thoughtworks.qdox,\
 	com.thoughtworks.qdox.model,\
 	com.thoughtworks.qdox.ant,\
@@ -48,36 +54,6 @@ Private-Package: \
 	org.apache.tools.ant.listener,\
 	org.apache.tools.ant.loader,\
 	org.apache.tools.ant.property,\
-	org.apache.tools.ant.taskdefs,\
-	org.apache.tools.ant.taskdefs.compilers,\
-	org.apache.tools.ant.taskdefs.condition,\
-	org.apache.tools.ant.taskdefs.cvslib,\
-	org.apache.tools.ant.taskdefs.email,\
-	org.apache.tools.ant.taskdefs.optional,\
-	org.apache.tools.ant.taskdefs.optional.ccm,\
-	org.apache.tools.ant.taskdefs.optional.clearcase,\
-	org.apache.tools.ant.taskdefs.optional.depend,\
-	org.apache.tools.ant.taskdefs.optional.depend.constantpool,\
-	org.apache.tools.ant.taskdefs.optional.ejb,\
-	org.apache.tools.ant.taskdefs.optional.extension,\
-	org.apache.tools.ant.taskdefs.optional.extension.resolvers,\
-	org.apache.tools.ant.taskdefs.optional.i18n,\
-	org.apache.tools.ant.taskdefs.optional.j2ee,\
-	org.apache.tools.ant.taskdefs.optional.javacc,\
-	org.apache.tools.ant.taskdefs.optional.javah,\
-	org.apache.tools.ant.taskdefs.optional.jlink,\
-	org.apache.tools.ant.taskdefs.optional.jsp,\
-	org.apache.tools.ant.taskdefs.optional.jsp.compilers,\
-	org.apache.tools.ant.taskdefs.optional.native2ascii,\
-	org.apache.tools.ant.taskdefs.optional.net,\
-	org.apache.tools.ant.taskdefs.optional.pvcs,\
-	org.apache.tools.ant.taskdefs.optional.script,\
-	org.apache.tools.ant.taskdefs.optional.sos,\
-	org.apache.tools.ant.taskdefs.optional.testing,\
-	org.apache.tools.ant.taskdefs.optional.unix,\
-	org.apache.tools.ant.taskdefs.optional.vss,\
-	org.apache.tools.ant.taskdefs.optional.windows,\
-	org.apache.tools.ant.taskdefs.rmic,\
 	org.apache.tools.ant.types,\
 	org.apache.tools.ant.types.conditions,\
 	org.apache.tools.ant.types.mappers,\
@@ -94,6 +70,8 @@ Private-Package: \
 	org.apache.tools.ant.util.facade,\
 	org.apache.tools.ant.util.java15,\
 	org.apache.tools.ant.util.optional,\
-	org.apache.tools.ant.util.regexp
+	org.apache.tools.ant.util.regexp,\
+	org.dom4j,\
+	org.dom4j.*
 
 Export-Package: com.liferay.tools
