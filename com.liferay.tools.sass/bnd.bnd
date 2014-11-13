@@ -1,0 +1,20 @@
+-buildpath: \
+	net.java.dev.jna:jna;strategy=exact;version=4.1.0
+
+-testpath: \
+	junit,\
+	hamcrest-core
+
+-includeresource: resources
+
+Bundle-Version: 1.0.0.${tstamp}
+
+Export-Package: \
+	com.liferay.tools.sass
+
+Private-Package: \
+	com.liferay.tools.sass.api,\
+	com.sun.jna,\
+	com.sun.jna.darwin,\
+	com.sun.jna.ptr,\
+	com.sun.jna.win32
