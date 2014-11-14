@@ -14,7 +14,4 @@ Export-Package: \
 
 Private-Package: \
 	com.liferay.tools.sass.api,\
-	com.sun.jna,\
-	com.sun.jna.darwin,\
-	com.sun.jna.ptr,\
-	com.sun.jna.win32
+	com.sun.jna.*
