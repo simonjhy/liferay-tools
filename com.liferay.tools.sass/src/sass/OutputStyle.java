@@ -1,4 +1,4 @@
-package com.liferay.tools.sass.api;
+package sass;
 public enum OutputStyle { 
 	NESTED(0), EXPANDED(1), COMPACT(2), COMPRESSED(3), FORMATTED(4);
 

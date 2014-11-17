@@ -1,5 +1,6 @@
 -buildpath: \
-	net.java.dev.jna:jna;strategy=exact;version=4.1.0
+	net.java.dev.jna:jna;strategy=exact;version=4.1.0,\
+	com.jnaerator:jnaerator-runtime;strategy=exact;version=0.9.9
 
 -testpath: \
 	junit,\
@@ -7,11 +8,14 @@
 
 -includeresource: resources
 
-Bundle-Version: 0.1.0.${tstamp}
+Bundle-Version: 0.2.0.${tstamp}
 
 Export-Package: \
 	com.liferay.tools.sass
 
 Private-Package: \
 	com.liferay.tools.sass.api,\
-	com.sun.jna.*
+	com.sun.jna.*,\
+	sass,\
+	com.ochafik.lang.jnaerator.runtime,\
+	com.ochafik.net

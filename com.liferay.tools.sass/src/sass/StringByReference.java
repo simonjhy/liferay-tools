@@ -1,4 +1,4 @@
-package com.liferay.tools.sass.api;
+package sass;
 
 import com.sun.jna.ptr.ByReference;
 

@@ -12,7 +12,21 @@ public class CompilerTests extends LibraryTests {
 	private static final String BASE_RESOURCES = "bin_test/com/liferay/tools/sass/tests/resources/";
 
 	@Test
-	public void testSassCompiler() throws Exception {
+	public void testCompile() throws Exception {
+		SassCompiler compiler = new SassCompiler();
+		assertNotNull(compiler);
+
+		String output = compiler.compile(".foo { background: white; .bar { margin-top: 10px; } }", "", "" );
+		assertNotNull(output);
+		assertEquals(".foo { background: white; } .foo .bar { margin-top: 10px; }", stripNewLines(output));
+	}
+
+	private String stripNewLines(String str) {
+		return str.replaceAll("\\n|\\r", "").replaceAll("\\s+", " ");
+	}
+
+	@Test
+	public void testCompileFile() throws Exception {
 		SassCompiler compiler = new SassCompiler();
 		assertNotNull(compiler);
 
