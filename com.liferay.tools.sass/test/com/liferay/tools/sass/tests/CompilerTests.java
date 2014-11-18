@@ -35,4 +35,14 @@ public class CompilerTests extends LibraryTests {
 		assertEquals(readFileContents(BASE_RESOURCES + "_asset_category_selector.css"), output);
 	}
 
+	@Test
+	public void testCompile_app_view_entry() throws Exception {
+		SassCompiler compiler = new SassCompiler();
+		assertNotNull(compiler);
+
+		String output = compiler.compileFile(BASE_RESOURCES + "/compass/_app_view_entry.scss", BASE_RESOURCES + "/compass/common", "");
+		assertNotNull(output);
+		assertEquals(readFileContents(BASE_RESOURCES + "/compass/_app_view_entry.css"), output);
+	}
+
 }
