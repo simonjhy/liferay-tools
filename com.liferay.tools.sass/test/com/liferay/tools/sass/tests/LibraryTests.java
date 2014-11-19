@@ -24,7 +24,7 @@ public class LibraryTests {
 	}
 
 	protected String readFileContents(String filename) throws Exception {
-		return readStreamToString(new FileInputStream(new File(filename)));
+		return readStreamToString(new FileInputStream(new File(filename))).replaceAll("\\r", "");
 	}
 
 	protected String readStreamToString(InputStream contents) throws Exception {
@@ -32,13 +32,13 @@ public class LibraryTests {
 	    {
 	        return null;
 	    }
-	
+
 	    final char[] buffer = new char[0x10000];
-	
+
 	    StringBuilder out = new StringBuilder();
-	
+
 	    Reader in = new InputStreamReader( contents, "UTF-8" ); //$NON-NLS-1$
-	
+
 	    int read;
 	    do
 	    {
@@ -49,9 +49,9 @@ public class LibraryTests {
 	        }
 	    }
 	    while( read >= 0 );
-	
+
 	    contents.close();
-	
+
 	    return out.toString();
 	}
 
