@@ -8,6 +8,9 @@ import org.junit.Test;
 import sass.SassLibrary;
 import sass.sass_context;
 
+/**
+ * @author Gregory Amerson
+ */
 public class LibSassTests extends LibraryTests {
 
 	@Test

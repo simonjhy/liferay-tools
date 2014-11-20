@@ -678,7 +678,11 @@ public abstract class BaseSourceProcessor implements SourceProcessor {
 	}
 
 	protected String format(String fileName) throws Exception {
-		File file = new File(BASEDIR + fileName);
+		File file = new File(fileName);
+
+		if(!file.exists()) {
+			file = new File(BASEDIR + fileName);
+		}
 
 		fileName = StringUtil.replace(
 			fileName, StringPool.BACK_SLASH, StringPool.SLASH);

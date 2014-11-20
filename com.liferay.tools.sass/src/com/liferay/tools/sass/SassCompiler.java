@@ -1,5 +1,8 @@
 package com.liferay.tools.sass;
 
+import com.sun.jna.Memory;
+import com.sun.jna.Pointer;
+
 import java.io.File;
 
 import sass.OutputStyle;
@@ -8,13 +11,15 @@ import sass.SourceComments;
 import sass.sass_context;
 import sass.sass_file_context;
 
-import com.sun.jna.Memory;
-import com.sun.jna.Pointer;
-
+/**
+ * @author Gregory Amerson
+ */
 public class SassCompiler {
 	static SassLibrary libsass = SassLibrary.INSTANCE;
 
-	public String compile(String input, String includePath, String imgPath) throws SassCompilationException {
+	public String compile(String input, String includePath, String imgPath)
+		throws SassCompilationException {
+
 		sass_context ctx = null;
 		try {
 			ctx = libsass.sass_new_context();
@@ -22,13 +27,14 @@ public class SassCompiler {
 			ctx.source_string = str(input);
 
 			ctx.options.image_path = str(imgPath);
-			ctx.options.source_comments= SourceComments.NONE.value();
+			ctx.options.source_comments = SourceComments.NONE.value();
 			ctx.options.output_style = OutputStyle.EXPANDED.value();
 
 			libsass.sass_compile(ctx);
 
-			if(ctx.error_status != 0)
-				throw new SassCompilationException(ctx.error_message.getString(0));
+			if (ctx.error_status != 0)
+				throw new SassCompilationException(
+					ctx.error_message.getString(0));
 
 			if (ctx.output_string == null || ctx.output_string.getString(0) == null)
 				throw new SassCompilationException("libsass returned null");
@@ -37,24 +43,27 @@ public class SassCompiler {
 
 			return output;
 		} finally {
-			try{
-				if (ctx != null)
-					libsass.sass_free_context(ctx);
-			} catch(Throwable t){
+			try {
+				if (ctx != null)libsass.sass_free_context(ctx);
+			} catch (Throwable t) {
 				throw new SassCompilationException(t);
 			}
 		}
 	}
 
-	public String compileFile(String inputFile, String includePath, String imgPath) throws SassCompilationException {
+	public String compileFile(
+			String inputFile, String includePath, String imgPath)
+		throws SassCompilationException {
+
 		sass_file_context ctx = null;
-		try{
+		try {
 			ctx = libsass.sass_new_file_context();
 
 			ctx.input_path = str(inputFile);
 			ctx.output_path = str("");
 
-			String includePaths = includePath+File.pathSeparator+new File(inputFile).getParent();
+			String includePaths =
+				includePath+File.pathSeparator+new File(inputFile).getParent();
 
 			ctx.options.include_paths = str(includePaths);
 			ctx.options.image_path = str(imgPath);
@@ -65,7 +74,8 @@ public class SassCompiler {
 			libsass.sass_compile_file(ctx);
 
 			if (ctx.error_status != 0)
-				throw new SassCompilationException(ctx.error_message.getString(0));
+				throw new SassCompilationException(
+					ctx.error_message.getString(0));
 
 			if (ctx.output_string == null || ctx.output_string.getString(0) == null)
 				throw new SassCompilationException("libsass returned null");
@@ -74,10 +84,9 @@ public class SassCompiler {
 
 			return output;
 		} finally {
-			try{
-				if (ctx != null)
-					libsass.sass_free_file_context(ctx);
-			} catch(Throwable t){
+			try {
+				if (ctx != null)libsass.sass_free_file_context(ctx);
+			} catch (Throwable t) {
 				throw new SassCompilationException(t);
 			}
 		}
@@ -88,11 +97,10 @@ public class SassCompiler {
 	 * @param string
 	 * @return
 	 */
-	private Pointer str(String string){
+	private Pointer str(String string) {
 		Memory mem = new Memory(string.length() +1);
 		mem.setString(0, string);
 		return mem;
 	}
-
 
 }
