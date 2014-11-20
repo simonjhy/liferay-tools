@@ -8,7 +8,7 @@
 
 -includeresource: resources
 
-Bundle-Version: 0.2.0.${tstamp}
+Bundle-Version: 0.3.0.${tstamp}
 
 Export-Package: \
 	com.liferay.tools.sass
