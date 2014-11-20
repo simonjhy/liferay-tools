@@ -22,7 +22,7 @@ public class MultiThreadedCompilerTests extends LibraryTests {
 				@Override
 				public void run() {
 					try {
-						sleep(100);
+						sleep(10);
 
 						SassCompiler compiler = new SassCompiler();
 						assertNotNull(compiler);

@@ -35,8 +35,8 @@ public class CompilerTests extends LibraryTests {
 			BASE_RESOURCES + "/compass/common", "");
 		assertNotNull(output);
 		assertEquals(
-			readFileContents(BASE_RESOURCES + "/compass/_app_view_entry.css"),
-			output);
+			stripNewLines(readFileContents(BASE_RESOURCES + "/compass/_app_view_entry.css")),
+			stripNewLines(output));
 	}
 
 	@Test
@@ -48,8 +48,8 @@ public class CompilerTests extends LibraryTests {
 			BASE_RESOURCES + "_asset_category_selector.scss", "", "");
 		assertNotNull(output);
 		assertEquals(
-			readFileContents(BASE_RESOURCES + "_asset_category_selector.css"),
-			output);
+			stripNewLines(readFileContents(BASE_RESOURCES + "_asset_category_selector.css")),
+			stripNewLines(output));
 	}
 
 	private String stripNewLines(String str) {

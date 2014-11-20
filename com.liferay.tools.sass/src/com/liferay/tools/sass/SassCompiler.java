@@ -21,11 +21,12 @@ public class SassCompiler {
 		throws SassCompilationException {
 
 		sass_context ctx = null;
+
 		try {
 			ctx = libsass.sass_new_context();
 
 			ctx.source_string = str(input);
-			
+
 			ctx.options.include_paths = str(includePath);
 			ctx.options.image_path = str(imgPath);
 			ctx.options.source_comments = SourceComments.NONE.value();
@@ -33,19 +34,23 @@ public class SassCompiler {
 
 			libsass.sass_compile(ctx);
 
-			if (ctx.error_status != 0)
+			if (ctx.error_status != 0) {
 				throw new SassCompilationException(
 					ctx.error_message.getString(0));
+			}
 
-			if (ctx.output_string == null || ctx.output_string.getString(0) == null)
+			if (ctx.output_string == null || ctx.output_string.getString(0) == null) {
 				throw new SassCompilationException("libsass returned null");
+			}
 
 			String output = ctx.output_string.getString(0);
 
 			return output;
 		} finally {
 			try {
-				if (ctx != null)libsass.sass_free_context(ctx);
+				if (ctx != null) {
+					libsass.sass_free_context(ctx);
+				}
 			} catch (Throwable t) {
 				throw new SassCompilationException(t);
 			}
@@ -57,6 +62,7 @@ public class SassCompiler {
 		throws SassCompilationException {
 
 		sass_file_context ctx = null;
+
 		try {
 			ctx = libsass.sass_new_file_context();
 
@@ -74,12 +80,14 @@ public class SassCompiler {
 
 			libsass.sass_compile_file(ctx);
 
-			if (ctx.error_status != 0)
+			if (ctx.error_status != 0) {
 				throw new SassCompilationException(
 					ctx.error_message.getString(0));
+			}
 
-			if (ctx.output_string == null || ctx.output_string.getString(0) == null)
+			if (ctx.output_string == null || ctx.output_string.getString(0) == null) {
 				throw new SassCompilationException("libsass returned null");
+			}
 
 			String output = ctx.output_string.getString(0);
 
