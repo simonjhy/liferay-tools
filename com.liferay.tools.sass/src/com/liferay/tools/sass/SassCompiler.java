@@ -25,7 +25,8 @@ public class SassCompiler {
 			ctx = libsass.sass_new_context();
 
 			ctx.source_string = str(input);
-
+			
+			ctx.options.include_paths = str(includePath);
 			ctx.options.image_path = str(imgPath);
 			ctx.options.source_comments = SourceComments.NONE.value();
 			ctx.options.output_style = OutputStyle.EXPANDED.value();
