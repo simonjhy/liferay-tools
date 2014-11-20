@@ -99,7 +99,7 @@ public class SassCompiler {
 	 * @return
 	 */
 	private Pointer str(String string) {
-		Memory mem = new Memory(string.length() +1);
+		Memory mem = new Memory(string.length() + 10);
 		mem.setString(0, string);
 		return mem;
 	}
